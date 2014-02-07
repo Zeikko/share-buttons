@@ -7,7 +7,7 @@
     width: 40px;
     height: 32px;
     line-height: 32px;
-    background-image: url('//ojalehto.fi/share-counter/images/count.gif');
+    background-image: url('../images/count.png');
 }
 
 #share-buttons * {
