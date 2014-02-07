@@ -28,7 +28,7 @@ var shareButton = (function() {
     bind(document.getElementById('share-button-linkedin'), 'click', open, {url: 'http://www.linkedin.com/shareArticle?url='});
 
     var script = document.createElement('script');
-    script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(window.location) + '&clientId=1&callback=shareButton.saveTotal';
+    script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(window.location) + '&id=1&callback=shareButton.saveTotal';
     document.body.appendChild(script);
 
     return {
