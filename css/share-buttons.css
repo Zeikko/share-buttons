@@ -12,6 +12,7 @@
 
 #share-buttons a, #share-buttons-share-count {
     float: left;
+    margin-left: 3px;
 }
 
 #share-buttons-clearfix {
