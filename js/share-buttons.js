@@ -16,12 +16,10 @@ var shareButton = (function() {
         }
     }
 
-
     function open(e, args) {
         e.preventDefault();
         window.open(args.url + encodeURIComponent(window.location), '_blank');
     }
-    ;
 
     bind(document.getElementById('share-button-facebook'), 'click', open, {url: 'https://www.facebook.com/sharer/sharer.php?u='});
     bind(document.getElementById('share-button-twitter'), 'click', open, {url: 'https://twitter.com/intent/tweet?text='});
