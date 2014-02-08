@@ -16,6 +16,7 @@ The backend server is not production ready.
 - Facebook
 - Twitter
 - LinkedIn
+- Google+
 
 ##  How to Use
 
