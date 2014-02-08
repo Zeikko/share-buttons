@@ -1,15 +1,20 @@
-#share-count {
+#share-buttons-share-count{
     font-family: 'Arial';
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-    padding: 0 10px;
-    width: 40px;
-    height: 32px;
     line-height: 32px;
-    background-image: url('../images/count.png');
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAgAgMAAAAzhvMBAAAADFBMVEVlLWf////CwsLq6upVk9Y1AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeAggJKAlwxIHxAAAAT0lEQVQY02NgYFiFBBYwMDBdDUWACgYGbiRuaBwDAycyP4z2fF00/lZUPopzgXwU5wL5umj8rQT46OrRzUO3D909GO6ld3ihxxd6fKLGNwCt65wDkSnoAgAAAABJRU5ErkJggg==);
+    width: 60px; 
+    height: 32px; 
+    display: none;
 }
 
-#share-buttons * {
+#share-buttons a, #share-buttons-share-count {
     float: left;
 }
+
+#share-buttons-clearfix {
+    clear: both;
+}
+
