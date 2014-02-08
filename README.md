@@ -46,3 +46,6 @@ The backend server is not production ready.
         </div>
         <script type="text/javascript" src="js/share-buttons.js"></script>
 ```
+
+## Thanks
+Thanks to Neil Hainsworth for the social media platform icons. (http://neilorangepeel.com/)

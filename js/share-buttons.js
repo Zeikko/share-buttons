@@ -1,18 +1,20 @@
 var shareButton = (function() {
 
     function bind(element, eventName, func, args) {
-        if (element.addEventListener) {
-            element.addEventListener(eventName, function(args) {
-                return function(e) {
-                    func(e, args);
-                };
-            }(args), false);
-        } else if (element.attachEvent) {
-            element.attachEvent('on' + eventName, function(args) {
-                return function(e) {
-                    func(e, args);
-                };
-            }(args), false);
+        if (element !== null) {
+            if (element.addEventListener) {
+                element.addEventListener(eventName, function(args) {
+                    return function(e) {
+                        func(e, args);
+                    };
+                }(args), false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, function(args) {
+                    return function(e) {
+                        func(e, args);
+                    };
+                }(args), false);
+            }
         }
     }
 
@@ -40,6 +42,11 @@ var shareButton = (function() {
         url: 'https://plus.google.com/share?url=',
         width: 484,
         height: 510
+    });
+    bind(document.getElementById('share-buttons-pinterest'), 'click', open, {
+        url: 'http://pinterest.com/pin/create/button/?url=',
+        width: 750,
+        height: 288
     });
 
     var script = document.createElement('script');
