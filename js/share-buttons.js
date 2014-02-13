@@ -1,63 +1,75 @@
 var shareButton = (function() {
 
-    function bind(element, eventName, func, args) {
+    function bind(element, eventName, func) {
         if (element !== null) {
             if (element.addEventListener) {
-                element.addEventListener(eventName, function(args) {
-                    return function(e) {
-                        func(e, args);
-                    };
-                }(args), false);
-            } else if (element.attachEvent) {
-                element.attachEvent('on' + eventName, function(args) {
-                    return function(e) {
-                        func(e, args);
-                    };
-                }(args), false);
+                element.addEventListener(eventName, function(e) {
+                    e.preventDefault();
+                    func();
+                }, false);
+            }
+            //IE 7,8
+            else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, function(e) {
+                    e.preventDefault();
+                    func();
+                }, false);
             }
         }
     }
 
-    function open(e, args) {
-        e.preventDefault();
-        window.open(args.url + encodeURIComponent(window.location), '_blank', 'toolbar=0,location=1,directories=1,status=1,menubar=0,scrollbars=1,resizable=1,width=' + args.width + ',height=' + args.height);
-    }
+    var open = function open(args) {
+        return function() {
+            window.open(args.url + encodeURIComponent(window.location), '_blank', 'toolbar=0,location=1,directories=1,status=1,menubar=0,scrollbars=1,resizable=1,width=' + args.width + ',height=' + args.height);
+        };
+    };
 
-    bind(document.getElementById('share-buttons-facebook'), 'click', open, {
+    bind(document.getElementById('share-buttons-facebook'), 'click', open({
         url: 'https://www.facebook.com/sharer/sharer.php?u=',
         width: 650,
         height: 313
-    });
-    bind(document.getElementById('share-buttons-twitter'), 'click', open, {
+    }));
+    bind(document.getElementById('share-buttons-twitter'), 'click', open({
         url: 'https://twitter.com/intent/tweet?text=',
         width: 680,
         height: 260
-    });
-    bind(document.getElementById('share-buttons-linkedin'), 'click', open, {
+    }));
+    bind(document.getElementById('share-buttons-linkedin'), 'click', open({
         url: 'http://www.linkedin.com/shareArticle?url=',
         width: 600,
         height: 500
-    });
-    bind(document.getElementById('share-buttons-googleplus'), 'click', open, {
+    }));
+    bind(document.getElementById('share-buttons-googleplus'), 'click', open({
         url: 'https://plus.google.com/share?url=',
         width: 484,
         height: 510
-    });
-    bind(document.getElementById('share-buttons-pinterest'), 'click', open, {
+    }));
+    bind(document.getElementById('share-buttons-pinterest'), 'click', open({
         url: 'http://pinterest.com/pin/create/button/?url=',
         width: 750,
         height: 288
-    });
+    }));
 
     var script = document.createElement('script');
-    script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(window.location) + '&id=1&callback=shareButton.saveTotal';
+    script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(window.location) + '&id=1&callback=shareButton.setCount';
     document.body.appendChild(script);
 
     return {
-        saveTotal: function(jsonp) {
-            if (typeof(jsonp.all) !== 'undefined') {
-                document.getElementById('share-buttons-share-count').innerHTML = jsonp.all;
-                document.getElementById('share-buttons-share-count').style.display = 'block';
+        setCount: function(jsonp) {
+            if (!isNaN(jsonp.facebook)) {
+                document.getElementById('share-buttons-facebook-share-count').innerHTML = jsonp.facebook;
+            }
+            if (!isNaN(jsonp.twitter)) {
+                document.getElementById('share-buttons-twitter-share-count').innerHTML = jsonp.twitter;
+            }
+            if (!isNaN(jsonp.linkedIn)) {
+                document.getElementById('share-buttons-linkedin-share-count').innerHTML = jsonp.linkedIn;
+            }
+            if (!isNaN(jsonp.googlePlus)) {
+                document.getElementById('share-buttons-googleplus-share-count').innerHTML = jsonp.googlePlus;
+            }
+            if (!isNaN(jsonp.pinterest)) {
+                document.getElementById('share-buttons-pinterest-share-count').innerHTML = jsonp.pinterest;
             }
         }
     };
