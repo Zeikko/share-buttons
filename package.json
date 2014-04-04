@@ -1,0 +1,19 @@
+{
+  "name": "share-buttons",
+  "version": "0.1.0",
+  "description": "Social media share buttons that show the number of shares in each platform",
+  "main": "js/share-buttons.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zeikko/share-buttons.git"
+  },
+  "author": "Jaakko Ojalehto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zeikko/share-buttons/issues"
+  },
+  "homepage": "https://github.com/Zeikko/share-buttons"
+}
