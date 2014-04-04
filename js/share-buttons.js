@@ -1,4 +1,6 @@
-var shareButton = (function() {
+'use strict'
+
+exports.shareButton = function() {
 
     function bind(element, eventName, func) {
         if (element !== null) {
@@ -74,4 +76,4 @@ var shareButton = (function() {
         }
     };
 
-})();
+};
