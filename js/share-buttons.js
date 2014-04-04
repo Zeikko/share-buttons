@@ -65,7 +65,7 @@ var localDocument;
         }));
 
         var script = localDocument.createElement('script');
-        script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(localWindow.location) + '&id=1&callback=shareButtons.setCount';
+        script.src = 'http://ojalehto.fi/share-counter/shares/total?url=' + encodeURIComponent(localWindow.location) + '&id=1&callback=share-buttons.setCount';
         localDocument.body.appendChild(script);
     }
     exports.setCount = function(jsonp) {
@@ -85,4 +85,4 @@ var localDocument;
             localDocument.getElementById('share-buttons-pinterest-share-count').innerHTML = jsonp.pinterest;
         }
     };
-})(typeof exports === 'undefined' ? this['shareButtons'] = {} : exports);
+})(typeof exports === 'undefined' ? this['share-buttons'] = {} : exports);
