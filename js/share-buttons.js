@@ -6,12 +6,12 @@ var localDocument;
         if(typeof windowParam === 'undefined') {
             localWindow = window;
         } else {
-            window = windowParam;
+            localWindow = windowParam;
         }
         if(typeof documentParam === 'undefined') {
             localDocument = document;
         } else {
-            document = documentParam;
+            localDocument = documentParam;
         }
 
         function bind(element, eventName, func) {
