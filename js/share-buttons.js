@@ -1,8 +1,5 @@
 (function(exports) {
-var window;
-var document;
-
-    exports.init = function(windowParam, documentParam) {
+    exports.init = function() {
         function bind(element, eventName, func) {
             if (element !== null) {
                 if (element.addEventListener) {
